@@ -1,19 +1,14 @@
 # Mac Development Ansible Playbook
 
-[![Build Status](https://travis-ci.org/geerlingguy/mac-dev-playbook.svg?branch=master)](https://travis-ci.org/geerlingguy/mac-dev-playbook)
+[![Build Status](https://travis-ci.org/timdiels1/mac-dev-playbook.svg?branch=master)](https://travis-ci.org/timdiels1/mac-dev-playbook)
 
 This playbook installs and configures most of the software I use on my Mac for web and software development. Some things in macOS are slightly difficult to automate, so I still have some manual installation steps, but at least it's all documented here.
 
 This is a work in progress, and is mostly a means for me to document my current Mac's setup. I'll be evolving this set of playbooks over time.
 
-*See also*:
-
-  - [Boxen](https://github.com/boxen)
-  - [Battleschool](http://spencer.gibb.us/blog/2014/02/03/introducing-battleschool)
-  - [osxc](https://github.com/osxc)
-  - [MWGriffin/ansible-playbooks](https://github.com/MWGriffin/ansible-playbooks) (the original inspiration for this project)
-
 ## Installation
+
+### Normal install
 
   1. [Install Ansible](http://docs.ansible.com/intro_installation.html).
   2. Ensure Apple's command line tools are installed (`xcode-select --install` to launch the installer).
@@ -22,6 +17,15 @@ This is a work in progress, and is mostly a means for me to document my current 
   5. Run `ansible-playbook main.yml -i inventory -K` inside this directory. Enter your account password when prompted.
 
 > Note: If some Homebrew commands fail, you might need to agree to XCode's license or fix some other Brew issue. Run `brew doctor` to see if this is the case.
+
+### Fast Install
+
+If you'd like to start with my default list of tools and apps (see Included Apps/Config below), then simply install with;
+
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/timdiels1/mac-dev-playbook/master/install.sh)"
+
+
+You can always customize the install after-the-fact (see below), and re-run the playbook. It will skip over any installed apps.
 
 ## Overriding Defaults
 
@@ -127,26 +131,11 @@ It's my hope that I can get the rest of these things wrapped up into Ansible pla
 
 These are mostly direct download links, some are more difficult to install because of custom installers or other nonstandard install quirks:
 
-  - [iShowU HD](http://www.shinywhitebox.com/downloads/iShowU_HD_2.3.20.dmg)
   - [Adobe Creative Cloud](http://www.adobe.com/creativecloud.html)
-
-### Configuration to be added:
-
-  - I have vim configuration in the repo, but I still need to add the actual installation:
-    ```
-    mkdir -p ~/.vim/autoload
-    mkdir -p ~/.vim/bundle
-    cd ~/.vim/autoload
-    curl https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim > pathogen.vim
-    cd ~/.vim/bundle
-    git clone git://github.com/scrooloose/nerdtree.git
-    ```
 
 ## Testing the Playbook
 
-Many people have asked me if I often wipe my entire workstation and start from scratch just to test changes to the playbook. Nope! Instead, I posted instructions for how I build a [Mac OS X VirtualBox VM](https://github.com/geerlingguy/mac-osx-virtualbox-vm), on which I can continually run and re-run this playbook to test changes and make sure things work correctly.
-
-Additionally, this project is [continuously tested on Travis CI's macOS infrastructure](https://travis-ci.org/geerlingguy/mac-dev-playbook).
+This project is [continuously tested on Travis CI's macOS infrastructure](https://travis-ci.org/timdiels1/mac-dev-playbook).
 
 ## Ansible for DevOps
 
@@ -154,4 +143,14 @@ Check out [Ansible for DevOps](https://www.ansiblefordevops.com/), which teaches
 
 ## Author
 
-[Jeff Geerling](http://www.jeffgeerling.com/), 2014 (originally inspired by [MWGriffin/ansible-playbooks](https://github.com/MWGriffin/ansible-playbooks)).
+[Tim Diels](http://www.tim-diels.be/), 2016.
+
+## Inspiration
+
+### Ansible playbook
+
+[geerlingguy/mac-dev-playbook](https://github.com/geerlingguy/mac-dev-playbook)
+
+### Install script
+
+[siyelo/laptop](https://github.com/siyelo/laptop)
