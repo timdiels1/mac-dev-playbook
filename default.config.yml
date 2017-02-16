@@ -62,13 +62,16 @@ homebrew_taps:
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
+  - 1password
   - docker
   - dropbox
   # - fing # Download link keeps getting changed, d'oh!
+  - filezilla
   - firefox
   - google-chrome
   - handbrake
   - hipchat
+  - iterm2
   - java
   - kdiff3
   - licecap
@@ -77,6 +80,7 @@ homebrew_cask_apps:
   # - menumeters
   # - yujitach-menumeters # Forked version for 10.11+ support.
   - nvalt
+  - phpstorm
   - sequel-pro
   - skype
   - skitch
