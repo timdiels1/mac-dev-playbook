@@ -2,6 +2,8 @@
 downloads: ~/.ansible-downloads/
 
 configure_sudoers: yes
+configure_terminal: yes
+configure_osx: yes
 
 dotfiles_repo: https://github.com/geerlingguy/dotfiles.git
 dotfiles_repo_accept_hostkey: yes
@@ -62,16 +64,18 @@ homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - docker
   - dropbox
-  - fing
+  # - fing # Download link keeps getting changed, d'oh!
   - firefox
   - google-chrome
   - handbrake
+  - hipchat
   - java
   - kdiff3
   - licecap
   - limechat
   - macvim
-  - yujitach-menumeters # Note: Using forked version for 10.11+ support
+  # - menumeters
+  # - yujitach-menumeters # Forked version for 10.11+ support.
   - nvalt
   - sequel-pro
   - skype
